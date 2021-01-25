@@ -1,9 +1,15 @@
-
+<% @book.errors.full_messages.each do |message| %>
+    <div class="form-error">
+       <h4><%= message %>error</h4>
+    </div>
+  <% end %>
 <h2>create Book</h2>
 <%= form_for(@book, url: book_path(@book.id), method: :patch) do |f| %>
   <h4>title</h4>
   <%= f.text_field :title %>
   <h4>body</h4>
   <%= f.text_area :body %>
-  <%= f.submit "create book" %>
+  <%= f.submit "Update Book" %>
+  <%= link_to "Show", book_path(@book.id) %>
+  <%= link_to "back", books_path %> 
 <% end %>

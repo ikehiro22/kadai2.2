@@ -5,7 +5,7 @@
 <% end %>
 <h1>Books</h1>
 <h4>title&body</h4>
-<div calss="A">
+<table>
   <% @book.errors.full_messages.each do |message| %>
     <div class="form-error">
        <%= message %>
@@ -16,13 +16,13 @@
   <% @books.each do |book| %>
     <%= book.title %>
     <%= book.body %>
-    <%= link_to "show", book_path(book.id) %>
-    <%= link_to "edit", edit_book_path(book.id) %>
-    <%= link_to "destroy", book_path(book.id), method: :delete, "data-confirm" => "honntounisakuzyoshimasukaaaa?" %>
+    <%= link_to "Show", book_path(book.id) %>
+    <%= link_to "Edit", edit_book_path(book.id) %>
+    <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "honntounisakuzyoshimasukaaaa?" %>
     <br>
   <% end %>
   <% end %>
-</div>
+</table>
 
 <h2>New Book</h2>
 <%= form_for(@book) do |f| %>
@@ -30,5 +30,5 @@
   <%= f.text_field :title %>
   <h4>body</h4>
   <%= f.text_area :body %>
-  <%= f.submit "create book" %>
+  <%= f.submit "Create Book" %>
 <% end %>
